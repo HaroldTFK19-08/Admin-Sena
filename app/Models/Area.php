@@ -16,4 +16,7 @@ class Area extends Model
     {
         return $this->hasMany(Course::class);
     }
+    protected $fillable = [
+        'name',
+    ];
 }

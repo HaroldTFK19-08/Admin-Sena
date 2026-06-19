@@ -12,4 +12,8 @@ class Computer extends Model
     {
         return $this->hasOne(Apprentice::class);
     }
+    protected $fillable = [  
+        'number',
+        'brand',
+    ];
 }
