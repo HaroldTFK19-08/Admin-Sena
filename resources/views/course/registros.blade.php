@@ -65,19 +65,18 @@
 </head>
 <body>
     <form action="{{ route('course.peticion') }}" method="POST" enctype="multipart/form-data">
+        <h1 style="text-align: center">Registro de Curso</h1>
         @csrf
         <label>
             numero de curso:
             <br>
             <input type="number" name="course_number">
         </label>
-        <br>
         <label>
             dia:
             <br>
             <input type="date" name="day">
         </label>
-        <br>
         <label for="area_id">Usuario</label>
         <select name="area_id" id="area_id" class="form-control">
             <option value="">Seleccione una area</option>
@@ -96,7 +95,7 @@
                 </option>
             @endforeach
         </select>
-        <br><br>
+        <br>
         <button type="submit">Enviar Formulario</button>
     </form>
 </body>

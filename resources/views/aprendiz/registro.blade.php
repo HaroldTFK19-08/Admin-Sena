@@ -65,25 +65,23 @@
 </head>
 <body>
     <form action="{{ route('aprendiz.admin') }}" method="POST" enctype="multipart/form-data">
+        <h1 style="text-align: center">Registro de Aprendiz</h1>
         @csrf
         <label>
             Nombre:
             <br>
             <input type="text" name="name">
         </label>
-        <br>
         <label>
             email:
             <br>
             <input type="email" name="email">
         </label>
-        <br>
         <label>
             numero de celular:
             <br>
             <input type="number" name="cell_number">
         </label>
-        <br>
         <label for="course_id">Usuario</label>
         <select name="course_id" id="course" class="form-control">
             <option value="">Seleccione un cursos</option>
@@ -101,7 +99,7 @@
                 </option>
             @endforeach
         </select>
-        <br><br>
+        <br>
         <button type="submit">Enviar Formulario</button>
     </form>
 </body>
