@@ -20,7 +20,8 @@
             min-height: 100vh;
         }
         form{
-            background-color: white;
+            background-color: rgb(90, 159, 193);
+            color: white;
             width: 700px;
             padding: 30px;
             border-radius: 10px;
@@ -82,7 +83,7 @@
             <br>
             <input type="number" name="cell_number">
         </label>
-        <label for="course_id">Usuario</label>
+        <label for="course_id">Curso</label>
         <select name="course_id" id="course" class="form-control">
             <option value="">Seleccione un cursos</option>
             @foreach ($courses as $course)

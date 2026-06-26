@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
         form{
-            background-color: white;
+            background-color: rgb(57, 78, 88);
             width: 700px;
             padding: 30px;
             border-radius: 10px;
@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            color: white
         }
         h1{
             text-align: center;
@@ -77,10 +78,9 @@
             <br>
             <input type="date" name="day">
         </label>
-        <label for="area_id">Usuario</label>
-        <select name="area_id" id="area_id" class="form-control">
+        <label for="area_id">Curso</label>
+        <select name="area_id" id="area_id">
             <option value="">Seleccione una area</option>
-
             @foreach ($areas as $area)
                 <option value="{{ $area->id }}">
                     {{ $area->name }}

@@ -24,7 +24,7 @@
 
         .sidebar{
             width:260px;
-            background:#0d6efd;
+            background:#1d2b3f;
             color:white;
             padding:25px;
             position:fixed;

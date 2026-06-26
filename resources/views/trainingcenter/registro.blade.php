@@ -10,7 +10,7 @@
         /* Fondo general de la página y centrado del formulario */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #5c73a0;
             display: flex;
             justify-content: center;
             align-items: center;

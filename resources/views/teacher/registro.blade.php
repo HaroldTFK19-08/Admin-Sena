@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
         form{
-            background-color: white;
+            background-color: rgb(49, 85, 193);
             width: 700px;
             padding: 30px;
             border-radius: 10px;
@@ -28,6 +28,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            color: white
         }
         h1{
             text-align: center;
