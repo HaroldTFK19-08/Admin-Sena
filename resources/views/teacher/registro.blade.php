@@ -1,102 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        form{
-            background-color: rgb(49, 85, 193);
-            width: 700px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            color: white
-        }
-        h1{
-            text-align: center;
-        }
-        input,
-        select{
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-            font-size: 15px;
-            outline: none;
-            transition: 0.3s;
-        }
-        input:focus,
-        select:focus{
-            border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0,123,255,0.4);
-        }
-        button{
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        button:hover{
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <form action="{{ route('teacher.admin') }}" method="POST" enctype="multipart/form-data">
-        <h1 style="text-align:center">Registro de Teacher</h1>
-        @csrf
-        <label>
-            Nombre:
-            <br>
-            <input type="text" name="name">
-        </label>
-        <label>
-            email:
-            <br>
-            <input type="email" name="email">
-        </label>
-        <label for="area_id">Usuario</label>
-        <select name="area_id" id="area_id" class="form-control">
-            <option value="">Seleccione una area</option>
-            @foreach ($areas as $area)
-                <option value="{{ $area->id }}">
-                    {{ $area->name }}
-                </option>
-            @endforeach
-        </select>
-        <select name="training_center_id">
-            <option value="">Seleccione un centro de formación</option>
-            @foreach ($training_centers as $training)
-                <option value="{{ $training->id }}">
-                    {{ $training->name }}
-                </option>
-            @endforeach
-        </select>
-        <br><br>
-        <button type="submit">Enviar Formulario:</button>
-    </form>
-</body>
-</html>
+@extends('layouts.appFormulario')
+@section('content')
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header text-center text-white" style="background-color:#00324D;">
+                        <h3 class="mb-0">
+                            <i class="fas fa-chalkboard-user me-2"></i>
+                            Registro de Instructor
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form action="{{ route('teacher.admin') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Nombre
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Ingrese el nombre del instructor">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Correo Electrónico
+                                </label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="ejemplo@correo.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Área
+                                </label>
+                                <select name="area_id" id="area_id" class="form-select">
+                                    <option value="">Seleccione un área</option>
+                                    @foreach ($areas as $area)
+                                        <option value="{{ $area->id }}">
+                                            {{ $area->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    Centro de Formación
+                                </label>
+                                <select name="training_center_id" class="form-select">
+                                    <option value="">Seleccione un centro de formación</option>
+                                    @foreach ($training_centers as $training)
+                                        <option value="{{ $training->id }}">
+                                            {{ $training->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-save me-2"></i>
+                                    Registrar Instructor
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+@endsection

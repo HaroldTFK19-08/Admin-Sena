@@ -1,108 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    
-    <style>
-        /* Fondo general de la página y centrado del formulario */
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #5c73a0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+@extends('layouts.formularioCentros')
+@section('formulario')
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
 
-        /* Contenedor del formulario con diseño de tarjeta moderna */
-        form {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Reemplaza los <br> dando un espacio uniforme */
-        }
+                <div class="card shadow-lg border-0 rounded-4">
 
-        /* Estilo para las etiquetas de texto */
-        label {
-            font-size: 14px;
-            font-weight: 600;
-            color: #374151;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+                    <div class="card-header text-center text-white" style="background-color:#00324D;">
+                        <h3 class="mb-0">
+                            <i class="fas fa-building me-2"></i>
+                            Registro del Centro de Formación
+                        </h3>
+                    </div>
 
-        /* Estilo para los campos de entrada de texto */
-        input[type="text"] {
-            padding: 10px 14px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 15px;
-            color: #1f2937;
-            background-color: #fff;
-            outline: none;
-            transition: all 0.2s ease-in-out;
-            box-sizing: border-box;
-            width: 100%;
-        }
+                    <div class="card-body p-4">
 
-        /* Efecto de enfoque azul al hacer clic en un input */
-        input[type="text"]:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-        }
+                        <form action="{{ route('trainingcenter.salidas') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
-        /* Estilo del botón de envío */
-        button {
-            background-color: #2563eb;
-            color: #ffffff;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            margin-top: 5px;
-        }
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    Nombre del Centro
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Ej. Centro de Innovación">
+                            </div>
 
-        /* Efecto al pasar el cursor sobre el botón */
-        button:hover {
-            background-color: #1d4ed8;
-        }
-        
-        /* Efecto de clic en el botón */
-        button:active {
-            transform: scale(0.98);
-        }
-    </style>
-</head>
-<body>
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">
+                                    Ubicación
+                                </label>
+                                <input
+                                    type="text"
+                                    name="location"
+                                    class="form-control"
+                                    placeholder="Ej. Bloque B, Piso 2">
+                            </div>
 
-    <form action="{{route('trainingcenter.salidas')}}" method="POST" enctype="multipart/form-data">
-        <h1 style="text-align: center">Registro del Centro de Formacion</h1>
-        @csrf
-        <label>
-            Nombre:
-            <input type="text" name="name" placeholder="Ej. Centro de Innovación">
-        </label>
-        
-        <label>
-            Ubicación:
-            <input type="text" name="location" placeholder="Ej. Bloque B, Piso 2">
-        </label>
-        <button type="submit">Enviar Formulario</button>
-    </form>
-</body>
-</html>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-save me-2"></i>
+                                    Registrar Centro
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+@endsection
